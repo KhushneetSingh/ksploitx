@@ -8,6 +8,7 @@ export interface Project {
   tech: string[];
   githubUrl?: string;
   liveUrl?: string;
+  coverImage?: string;
   featured: boolean;
   status: "DEPLOYED" | "WIP" | "ARCHIVED";
 }
