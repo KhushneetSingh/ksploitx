@@ -10,7 +10,7 @@ export interface Project {
   liveUrl?: string;
   coverImage?: string;
   featured: boolean;
-  status: "DEPLOYED" | "WIP" | "ARCHIVED";
+  status: "DEPLOYED" | "WIP" | "ARCHIVED" | "DEVELOPED";
 }
 
 export interface SkillCategory {

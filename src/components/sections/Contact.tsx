@@ -22,7 +22,7 @@ function LinkedinIcon({ size = 20 }: { size?: number }) {
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
-  const email = "khushneetsingh@proton.me";
+  const email = "singhkhushneet601@gmail.com";
 
   const copyEmail = useCallback(() => {
     navigator.clipboard.writeText(email).then(() => {

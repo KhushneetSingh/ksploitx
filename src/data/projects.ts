@@ -30,36 +30,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/mro-nerd/SolveIt",
     coverImage: "/images/cover-ace.png",
     featured: true,
-    status: "WIP",
-  },
-  {
-    id: "data-sanity",
-    slug: "data-sanity",
-    codename: "DATA_SANITY",
-    title: "Data Sanity",
-    description:
-      "RAG-ready AI dataset pipeline with LLM-powered data cleaning and Exa semantic search integration. Transforms raw data into high-quality, vectorized datasets for ML workflows.",
-    longDescription:
-      "Data Sanity is an end-to-end data preparation pipeline designed for AI/ML workflows. It leverages LangChain for intelligent data cleaning, FastAPI for the serving layer, pgvector for efficient vector storage, and Exa's semantic search API for contextual data enrichment. The pipeline ensures datasets are RAG-ready with minimal manual intervention.",
-    tech: ["Python", "LangChain", "FastAPI", "pgvector", "Exa"],
-    githubUrl: "https://github.com/KhushneetSingh/DataSanity",
-    coverImage: "/images/cover-datasanity.png",
-    featured: true,
-    status: "DEPLOYED",
-  },
-  {
-    id: "vital-vault",
-    slug: "vital-vault",
-    codename: "VITAL_VAULT",
-    title: "Vital Vault",
-    description:
-      "AI-powered health companion app that securely manages health records, analyzes reports using Qwen AI, tracks medicines, syncs wearable data, and offers chat-based health insights with cryptographic vault security.",
-    longDescription:
-      "VitalVault is a comprehensive health management platform built with Flutter and Firebase. Features include AI-driven medical report analysis, one-touch report digitization, medicine tracking, wearable data sync, SOS alerts, and nearby hospital discovery. All health data is protected with a cryptographic vault layer for maximum security.",
-    tech: ["Flutter", "Firebase", "pgvector", "Exa", "LangChain"],
-    githubUrl: "https://github.com/KhushneetSingh/Vital-Vault",
-    featured: true,
-    status: "ARCHIVED",
+    status: "DEVELOPED",
   },
   {
     id: "pi-sentinel",
@@ -75,5 +46,34 @@ export const projects: Project[] = [
     coverImage: "/images/cover-pisentinel.png",
     featured: true,
     status: "DEPLOYED",
+  },
+  {
+    id: "data-sanity",
+    slug: "data-sanity",
+    codename: "DATA_SANITY",
+    title: "Data Sanity",
+    description:
+      "RAG-ready AI dataset pipeline with LLM-powered data cleaning and Exa semantic search integration. Transforms raw data into high-quality, vectorized datasets for ML workflows.",
+    longDescription:
+      "Data Sanity is an end-to-end data preparation pipeline designed for AI/ML workflows. It leverages LangChain for intelligent data cleaning, FastAPI for the serving layer, pgvector for efficient vector storage, and Exa's semantic search API for contextual data enrichment. The pipeline ensures datasets are RAG-ready with minimal manual intervention.",
+    tech: ["Python", "LangChain", "FastAPI", "pgvector", "Exa"],
+    githubUrl: "https://github.com/KhushneetSingh/DataSanity",
+    coverImage: "/images/cover-datasanity.png",
+    featured: true,
+    status: "WIP",
+  },
+  {
+    id: "vital-vault",
+    slug: "vital-vault",
+    codename: "VITAL_VAULT",
+    title: "Vital Vault",
+    description:
+      "AI-powered health companion app that securely manages health records, analyzes reports using Qwen AI, tracks medicines, syncs wearable data, and offers chat-based health insights with cryptographic vault security.",
+    longDescription:
+      "VitalVault is a comprehensive health management platform built with Flutter and Firebase. Features include AI-driven medical report analysis, one-touch report digitization, medicine tracking, wearable data sync, SOS alerts, and nearby hospital discovery. All health data is protected with a cryptographic vault layer for maximum security.",
+    tech: ["Flutter", "Firebase", "pgvector", "Exa", "LangChain"],
+    githubUrl: "https://github.com/KhushneetSingh/Vital-Vault",
+    featured: true,
+    status: "ARCHIVED",
   },
 ];

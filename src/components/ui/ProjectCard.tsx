@@ -21,16 +21,20 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const statusClass =
     project.status === "DEPLOYED"
       ? "status-deployed"
-      : project.status === "WIP"
-        ? "status-wip"
-        : "status-archived";
+      : project.status === "DEVELOPED"
+        ? "status-developed"
+        : project.status === "WIP"
+          ? "status-wip"
+          : "status-archived";
 
   const statusLabel =
     project.status === "DEPLOYED"
       ? "DEPLOYED"
-      : project.status === "WIP"
-        ? "IN PROGRESS"
-        : "RESEARCH";
+      : project.status === "DEVELOPED"
+        ? "DEVELOPED"
+        : project.status === "WIP"
+          ? "IN PROGRESS"
+          : "RESEARCH";
 
   return (
     <div className="project-card group">
