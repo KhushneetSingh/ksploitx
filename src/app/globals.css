@@ -705,3 +705,40 @@ button, a {
 .github-profile-btn:hover .github-profile-btn-glow {
   opacity: 1;
 }
+
+/* ── Social Icon Buttons ─────────────────────────── */
+
+.social-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  color: var(--color-foreground);
+  background: transparent;
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease,
+    transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.social-icon-btn:hover {
+  border-color: var(--color-accent);
+  background: rgba(0, 255, 136, 0.1);
+  color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.1);
+}
+
+/* ── Timeline Card ───────────────────────────────── */
+
+.timeline-card {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+a:has(.timeline-card):hover .timeline-card,
+a:focus-visible .timeline-card {
+  border-color: rgba(0, 255, 136, 0.35);
+  box-shadow: 0 0 24px rgba(0, 255, 136, 0.06),
+    0 8px 32px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}

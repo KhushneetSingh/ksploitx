@@ -28,4 +28,7 @@ export interface TimelineItem {
   description: string;
   imageUrl?: string;
   link?: string;
+  linkIcon?: "linkedin" | "github" | "document" | "external";
+  hoverLabel?: string;
+  githubUrl?: string;
 }
