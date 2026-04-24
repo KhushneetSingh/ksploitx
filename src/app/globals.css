@@ -640,7 +640,7 @@ button, a {
 /* ── GitHub Heatmap ───────────────────────────────── */
 
 .github-heatmap-container {
-  padding: 16px;
+  padding: 20px;
   background: rgba(26, 26, 26, 0.6);
   border: 1px solid rgba(0, 255, 136, 0.15);
   backdrop-filter: blur(8px);
@@ -655,12 +655,13 @@ button, a {
 .github-heatmap {
   width: 100%;
   height: auto;
-  filter: brightness(0.85) contrast(1.2);
+  min-height: 60px;
+  filter: brightness(0.9) contrast(1.15);
   transition: filter 0.3s ease;
 }
 
 .github-heatmap-container:hover .github-heatmap {
-  filter: brightness(1) contrast(1.1);
+  filter: brightness(1.05) contrast(1.1);
 }
 
 /* ── GitHub Profile Button ────────────────────────── */

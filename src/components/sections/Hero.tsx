@@ -125,8 +125,8 @@ export default function Hero() {
       />
 
       {/* Content — Two Column Layout */}
-      <div className="relative z-10 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full py-32">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+      <div className="relative z-10 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full py-20 lg:py-24">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
           {/* ── LEFT COLUMN: Terminal + Headline + CTA ── */}
           <div className="flex-1 w-full lg:max-w-[55%]">
             {/* System Ready Label */}
@@ -134,7 +134,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="flex items-center gap-3 mb-6"
+              className="flex items-center gap-3 mb-3"
             >
               <span className="w-2 h-2 bg-accent animate-pulse inline-block" />
               <span className="font-mono text-xs text-accent/70 tracking-widest">
@@ -147,7 +147,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.4 }}
-              className="font-mono text-sm text-accent glow-green mb-4"
+              className="font-mono text-sm text-accent glow-green mb-3"
             >
               <span>&gt; ksploitx_</span>
               <span className="inline-block w-2 h-4 bg-accent ml-1 animate-blink align-middle" />
@@ -158,7 +158,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.7 }}
-              className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[0.95] mb-6 tracking-tight"
+              className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[0.95] mb-4 tracking-tight"
             >
               THE
               <br />
@@ -172,7 +172,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.0, duration: 0.6 }}
-              className="text-muted-light text-base md:text-lg max-w-xl leading-relaxed mb-8 font-light"
+              className="text-muted-light text-sm md:text-base max-w-xl leading-relaxed mb-5 font-light"
             >
               Full-stack developer and AI engineer building intelligent systems
               at the intersection of security, machine learning, and scalable
@@ -184,14 +184,14 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 0.6 }}
-              className="mb-10"
+              className="mb-6"
             >
               <div className="github-heatmap-container">
                 <div className="flex items-center gap-2 mb-3">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-accent/70">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                   </svg>
-                  <span className="font-mono text-[10px] text-accent/60 tracking-widest uppercase">
+                  <span className="font-mono text-[11px] text-accent/60 tracking-widest uppercase">
                     CONTRIBUTION_MAP
                   </span>
                 </div>
