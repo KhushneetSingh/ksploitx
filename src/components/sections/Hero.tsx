@@ -11,7 +11,7 @@ const HERO_PHOTOS = [
     rotate: -3,
     zIndex: 30,
     offsetX: "5%",
-    offsetY: "0%",
+    offsetY: "2%",
     label: "// SPEAKING",
   },
   {
@@ -20,7 +20,7 @@ const HERO_PHOTOS = [
     rotate: 4,
     zIndex: 25,
     offsetX: "45%",
-    offsetY: "5%",
+    offsetY: "8%",
     label: "// WORKSHOP",
   },
   {
@@ -29,7 +29,7 @@ const HERO_PHOTOS = [
     rotate: -1,
     zIndex: 20,
     offsetX: "25%",
-    offsetY: "-10%",
+    offsetY: "-6%",
     label: "// AMD_SLINGSHOT",
   },
   {
@@ -38,7 +38,7 @@ const HERO_PHOTOS = [
     rotate: 3,
     zIndex: 15,
     offsetX: "55%",
-    offsetY: "-8%",
+    offsetY: "-4%",
     label: "// CONFERENCE",
   },
   {
@@ -47,7 +47,7 @@ const HERO_PHOTOS = [
     rotate: -4,
     zIndex: 12,
     offsetX: "60%",
-    offsetY: "18%",
+    offsetY: "34%",
     label: "// HACKATHON",
   },
   {
@@ -56,7 +56,7 @@ const HERO_PHOTOS = [
     rotate: 2,
     zIndex: 18,
     offsetX: "8%",
-    offsetY: "20%",
+    offsetY: "36%",
     label: "// SQUAD",
   },
   {
@@ -65,7 +65,7 @@ const HERO_PHOTOS = [
     rotate: -5,
     zIndex: 14,
     offsetX: "38%",
-    offsetY: "22%",
+    offsetY: "38%",
     label: "// KIOSK_DEMO",
   },
 ];
@@ -291,8 +291,8 @@ export default function Hero() {
                       width={320}
                       height={400}
                       className="photo-image"
-                      loading={index < 3 ? "eager" : "lazy"}
-                      priority={index < 3}
+                      loading="eager"
+                      priority={true}
                     />
                   </div>
 
