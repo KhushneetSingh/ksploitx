@@ -71,7 +71,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               className="project-action-btn"
               aria-label={`GitHub repository for ${project.title}`}
             >
-              <GithubIcon size={15} />
+              <GithubIcon size={20} />
             </a>
           )}
           {project.liveUrl && (
@@ -82,7 +82,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               className="project-action-btn project-action-btn-cyan"
               aria-label={`Live demo for ${project.title}`}
             >
-              <ExternalLink size={15} />
+              <ExternalLink size={20} />
             </a>
           )}
         </div>
@@ -122,13 +122,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                   <Image
                     src={iconUrl}
                     alt={`${t} icon`}
-                    width={16}
-                    height={16}
+                    width={20}
+                    height={20}
                     className="tech-pill-icon"
                     unoptimized
                   />
                 ) : (
-                  <span className="w-1.5 h-1.5 bg-accent-cyan/60 inline-block flex-shrink-0" />
+                  <span className="w-2.5 h-2.5 bg-accent-cyan/60 inline-block flex-shrink-0" />
                 )}
                 {t}
               </span>

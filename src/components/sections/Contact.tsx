@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Download, FileText, X, Eye } from "lucide-react";
 
@@ -39,16 +39,8 @@ function DiscordIcon({ size = 20 }: { size?: number }) {
 }
 
 export default function Contact() {
-  const [copied, setCopied] = useState(false);
   const [showResume, setShowResume] = useState(false);
   const email = "singhkhushneet601@gmail.com";
-
-  const copyEmail = useCallback(() => {
-    navigator.clipboard.writeText(email).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  }, [email]);
 
   return (
     <>
@@ -58,7 +50,7 @@ export default function Contact() {
       >
         <div className="max-w-5xl mx-auto">
           {/* ── Two Column Layout ── */}
-          <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-20">
+          <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
             {/* LEFT: Let's Build + Email + Socials */}
             <div className="flex-1 text-center lg:text-left">
               {/* Label */}
@@ -91,28 +83,15 @@ export default function Contact() {
                 transition={{ delay: 0.2, duration: 0.5 }}
                 className="mb-10"
               >
-                <button
-                  onClick={copyEmail}
+                <a
+                  href={`mailto:${email}`}
                   className="relative inline-flex items-center gap-3 px-6 py-3 bg-surface border border-border hover:border-accent/40 transition-colors duration-200 group"
                 >
                   <Mail size={16} className="text-accent" />
                   <span className="font-mono text-sm text-foreground/80 group-hover:text-accent transition-colors">
                     {email}
                   </span>
-
-                  {/* Copied Feedback */}
-                  <motion.span
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={
-                      copied
-                        ? { opacity: 1, scale: 1 }
-                        : { opacity: 0, scale: 0.8 }
-                    }
-                    className="absolute -top-10 left-1/2 -translate-x-1/2 font-mono text-[10px] text-accent bg-surface border border-accent/30 px-3 py-1 whitespace-nowrap"
-                  >
-                    COPIED_TO_CLIPBOARD
-                  </motion.span>
-                </button>
+                </a>
               </motion.div>
 
               {/* Social Links */}

@@ -6,22 +6,22 @@ import Image from "next/image";
 
 const HERO_PHOTOS = [
   {
-    src: "/images/hero-speaking.jpg",
-    alt: "Khushneet Singh — Speaking at AICTE IDEA Lab",
+    src: "/images/hero-speaking-2.jpg",
+    alt: "Khushneet Singh — Speaking at event",
     rotate: -3,
     zIndex: 30,
     offsetX: "5%",
     offsetY: "0%",
-    label: "// WORKSHOP",
+    label: "// SPEAKING",
   },
   {
-    src: "/images/hero-speaking-2.jpg",
-    alt: "Khushneet Singh — Speaking at event",
+    src: "/images/hero-speaking.jpg",
+    alt: "Khushneet Singh — Speaking at AICTE IDEA Lab",
     rotate: 4,
     zIndex: 25,
     offsetX: "45%",
     offsetY: "5%",
-    label: "// SPEAKING",
+    label: "// WORKSHOP",
   },
   {
     src: "/images/hero-amd.jpg",
@@ -162,12 +162,25 @@ export default function Hero() {
               <span className="inline-block w-2 h-4 bg-accent ml-1 animate-blink align-middle" />
             </motion.div>
 
-            {/* Main Heading */}
+            {/* Name — Prominent Display */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6, duration: 0.7 }}
+              className="mb-3"
+            >
+              <div className="hero-name">
+                <span className="hero-name-first">KHUSHNEET</span>
+                <span className="hero-name-last">SINGH</span>
+              </div>
+            </motion.div>
+
+            {/* Tagline */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.7 }}
-              className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[0.95] mb-4 tracking-tight"
+              className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-[0.95] mb-4 tracking-tight"
             >
               THE
               <br />

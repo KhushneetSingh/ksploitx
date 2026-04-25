@@ -514,12 +514,13 @@ button, a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 42px;
+  height: 42px;
   background: rgba(13, 13, 13, 0.85);
   border: 1px solid var(--color-border);
   color: var(--color-foreground);
   backdrop-filter: blur(8px);
+  border-radius: 4px;
   transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
 }
 
@@ -556,8 +557,8 @@ button, a {
 }
 
 .tech-pill-icon {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
   filter: brightness(1.2) saturate(0.7);
   transition: filter 0.2s ease;
@@ -919,5 +920,35 @@ a:focus-visible .timeline-card {
   border-color: #ff4444;
   color: #ff4444;
   background: rgba(255, 68, 68, 0.08);
+}
+
+/* ── Hero Name ──────────────────────────────────────── */
+
+.hero-name {
+  position: relative;
+  padding-left: 20px;
+  border-left: 3px solid var(--color-accent);
+  line-height: 0.92;
+}
+
+.hero-name-first,
+.hero-name-last {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hero-name-first {
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  color: var(--color-foreground);
+}
+
+.hero-name-last {
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
