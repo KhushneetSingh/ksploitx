@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Mail, Download, FileText, X, Eye } from "lucide-react";
 
 /* ── Inline SVG Icons ──────────────────────────────── */
 
@@ -40,6 +40,7 @@ function DiscordIcon({ size = 20 }: { size?: number }) {
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
+  const [showResume, setShowResume] = useState(false);
   const email = "singhkhushneet601@gmail.com";
 
   const copyEmail = useCallback(() => {
@@ -50,129 +51,282 @@ export default function Contact() {
   }, [email]);
 
   return (
-    <section
-      id="contact"
-      className="py-32 px-6 md:px-12 lg:px-24 bg-surface-container"
-    >
-      <div className="max-w-3xl mx-auto text-center">
-        {/* Label */}
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-          className="font-mono text-xs text-muted tracking-widest block mb-6"
-        >
-          // INIT_CONTACT
-        </motion.span>
+    <>
+      <section
+        id="contact"
+        className="py-32 px-6 md:px-12 lg:px-24 bg-surface-container"
+      >
+        <div className="max-w-5xl mx-auto">
+          {/* ── Two Column Layout ── */}
+          <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-20">
+            {/* LEFT: Let's Build + Email + Socials */}
+            <div className="flex-1 text-center lg:text-left">
+              {/* Label */}
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5 }}
+                className="font-mono text-xs text-muted tracking-widest block mb-6"
+              >
+                // INIT_CONTACT
+              </motion.span>
 
-        {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ delay: 0.1, duration: 0.5 }}
-          className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-8"
-        >
-          LET&apos;S BUILD<span className="text-accent">.</span>
-        </motion.h2>
+              {/* Heading */}
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-8"
+              >
+                LET&apos;S BUILD<span className="text-accent">.</span>
+              </motion.h2>
 
-        {/* Email Chip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          className="mb-12"
-        >
-          <button
-            onClick={copyEmail}
-            className="relative inline-flex items-center gap-3 px-6 py-3 bg-surface border border-border hover:border-accent/40 transition-colors duration-200 group"
-          >
-            <Mail size={16} className="text-accent" />
-            <span className="font-mono text-sm text-foreground/80 group-hover:text-accent transition-colors">
-              {email}
-            </span>
+              {/* Email Chip */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="mb-10"
+              >
+                <button
+                  onClick={copyEmail}
+                  className="relative inline-flex items-center gap-3 px-6 py-3 bg-surface border border-border hover:border-accent/40 transition-colors duration-200 group"
+                >
+                  <Mail size={16} className="text-accent" />
+                  <span className="font-mono text-sm text-foreground/80 group-hover:text-accent transition-colors">
+                    {email}
+                  </span>
 
-            {/* Copied Feedback */}
-            <motion.span
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={
-                copied
-                  ? { opacity: 1, scale: 1 }
-                  : { opacity: 0, scale: 0.8 }
-              }
-              className="absolute -top-10 left-1/2 -translate-x-1/2 font-mono text-[10px] text-accent bg-surface border border-accent/30 px-3 py-1 whitespace-nowrap"
+                  {/* Copied Feedback */}
+                  <motion.span
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={
+                      copied
+                        ? { opacity: 1, scale: 1 }
+                        : { opacity: 0, scale: 0.8 }
+                    }
+                    className="absolute -top-10 left-1/2 -translate-x-1/2 font-mono text-[10px] text-accent bg-surface border border-accent/30 px-3 py-1 whitespace-nowrap"
+                  >
+                    COPIED_TO_CLIPBOARD
+                  </motion.span>
+                </button>
+              </motion.div>
+
+              {/* Social Links */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="flex items-center justify-center lg:justify-start gap-4"
+              >
+                <a
+                  href="https://github.com/KhushneetSingh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-icon-btn"
+                  aria-label="GitHub"
+                >
+                  <GithubIcon size={20} />
+                </a>
+                <a
+                  href="https://linkedin.com/in/khushneet-singh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-icon-btn"
+                  aria-label="LinkedIn"
+                >
+                  <LinkedinIcon size={20} />
+                </a>
+                <a
+                  href={`mailto:${email}`}
+                  className="social-icon-btn"
+                  aria-label="Email"
+                >
+                  <Mail size={20} />
+                </a>
+                <a
+                  href="https://x.com/Singh0Khushneet"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-icon-btn"
+                  aria-label="Twitter / X"
+                >
+                  <TwitterIcon size={20} />
+                </a>
+                <a
+                  href="https://discord.com/users/724934961349656606"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-icon-btn"
+                  aria-label="Discord"
+                >
+                  <DiscordIcon size={20} />
+                </a>
+              </motion.div>
+            </div>
+
+            {/* RIGHT: Resume Preview Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="w-full lg:w-auto lg:flex-shrink-0"
             >
-              COPIED_TO_CLIPBOARD
-            </motion.span>
-          </button>
-        </motion.div>
+              <div className="resume-card">
+                {/* Header */}
+                <div className="flex items-center gap-2 mb-4">
+                  <FileText size={16} className="text-accent" />
+                  <span className="font-mono text-[11px] text-accent/70 tracking-widest uppercase">
+                    RESUME.PDF
+                  </span>
+                  <div className="flex-1 h-px bg-border ml-2" />
+                </div>
 
-        {/* Social Links */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="flex items-center justify-center gap-4 mb-16"
-        >
-          <a
-            href="https://github.com/KhushneetSingh"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-icon-btn"
-            aria-label="GitHub"
-          >
-            <GithubIcon size={20} />
-          </a>
-          <a
-            href="https://linkedin.com/in/khushneet-singh"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-icon-btn"
-            aria-label="LinkedIn"
-          >
-            <LinkedinIcon size={20} />
-          </a>
-          <a
-            href={`mailto:${email}`}
-            className="social-icon-btn"
-            aria-label="Email"
-          >
-            <Mail size={20} />
-          </a>
-          <a
-            href="https://x.com/Singh0Khushneet"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-icon-btn"
-            aria-label="Twitter / X"
-          >
-            <TwitterIcon size={20} />
-          </a>
-          <a
-            href="https://discord.com/users/724934961349656606"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-icon-btn"
-            aria-label="Discord"
-          >
-            <DiscordIcon size={20} />
-          </a>
-        </motion.div>
+                {/* PDF Thumbnail Preview */}
+                <button
+                  onClick={() => setShowResume(true)}
+                  className="resume-thumbnail-btn group"
+                >
+                  <div className="resume-thumbnail">
+                    {/* Top Bar */}
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-8 h-1 bg-accent/40 rounded-full" />
+                      <div className="w-16 h-1 bg-accent/20 rounded-full" />
+                    </div>
+                    {/* Simulated lines */}
+                    <div className="space-y-2">
+                      <div className="w-3/4 h-1.5 bg-foreground/15 rounded-sm" />
+                      <div className="w-full h-1 bg-foreground/8 rounded-sm" />
+                      <div className="w-5/6 h-1 bg-foreground/8 rounded-sm" />
+                      <div className="w-2/3 h-1 bg-foreground/8 rounded-sm" />
+                      <div className="h-2" />
+                      <div className="w-1/2 h-1.5 bg-accent/20 rounded-sm" />
+                      <div className="w-full h-1 bg-foreground/6 rounded-sm" />
+                      <div className="w-4/5 h-1 bg-foreground/6 rounded-sm" />
+                      <div className="w-3/4 h-1 bg-foreground/6 rounded-sm" />
+                      <div className="h-2" />
+                      <div className="w-2/5 h-1.5 bg-accent/20 rounded-sm" />
+                      <div className="w-full h-1 bg-foreground/6 rounded-sm" />
+                      <div className="w-5/6 h-1 bg-foreground/6 rounded-sm" />
+                    </div>
+                    {/* Hover overlay */}
+                    <div className="resume-thumbnail-overlay">
+                      <Eye size={24} className="text-accent mb-2" />
+                      <span className="font-mono text-xs text-accent tracking-wider">
+                        PREVIEW
+                      </span>
+                    </div>
+                  </div>
+                </button>
 
-        {/* Footer */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-          className="font-mono text-[11px] text-muted tracking-widest"
-        >
-          © 2026 KSPLOITX // ALL_SYSTEMS_OPERATIONAL
-        </motion.p>
-      </div>
-    </section>
+                {/* Actions */}
+                <div className="flex gap-3 mt-4">
+                  <button
+                    onClick={() => setShowResume(true)}
+                    className="resume-action-btn flex-1"
+                  >
+                    <Eye size={14} />
+                    <span>PREVIEW</span>
+                  </button>
+                  <a
+                    href="/docs/Khushneet_Singh.pdf"
+                    download="Khushneet_Singh_Resume.pdf"
+                    className="resume-action-btn resume-action-btn-primary flex-1"
+                  >
+                    <Download size={14} />
+                    <span>DOWNLOAD</span>
+                  </a>
+                </div>
+
+                {/* File info */}
+                <div className="flex items-center justify-between mt-3">
+                  <span className="font-mono text-[10px] text-muted tracking-wider">
+                    Khushneet_Singh.pdf
+                  </span>
+                  <span className="font-mono text-[10px] text-muted tracking-wider">
+                    PDF // 154KB
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Footer */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="font-mono text-[11px] text-muted tracking-widest text-center mt-20"
+          >
+            © 2026 KSPLOITX // ALL_SYSTEMS_OPERATIONAL
+          </motion.p>
+        </div>
+      </section>
+
+      {/* ── Resume Preview Modal ── */}
+      <AnimatePresence>
+        {showResume && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="resume-modal-backdrop"
+            onClick={() => setShowResume(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 30 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="resume-modal"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="resume-modal-header">
+                <div className="flex items-center gap-3">
+                  <FileText size={18} className="text-accent" />
+                  <span className="font-mono text-sm text-foreground tracking-wider">
+                    KHUSHNEET_SINGH.PDF
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <a
+                    href="/docs/Khushneet_Singh.pdf"
+                    download="Khushneet_Singh_Resume.pdf"
+                    className="resume-modal-download-btn"
+                  >
+                    <Download size={16} />
+                    <span className="font-mono text-xs tracking-wider">DOWNLOAD</span>
+                  </a>
+                  <button
+                    onClick={() => setShowResume(false)}
+                    className="resume-modal-close-btn"
+                    aria-label="Close resume preview"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+              </div>
+
+              {/* PDF Embed */}
+              <div className="resume-modal-body">
+                <iframe
+                  src="/docs/Khushneet_Singh.pdf"
+                  title="Khushneet Singh Resume"
+                  className="w-full h-full border-0"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
