@@ -79,6 +79,7 @@ export const TECH_ICON_MAP: Record<string, string | null> = {
   "Framer Motion": null,
   Tailwind: `${DEVICON_BASE}/tailwindcss/tailwindcss-original.svg`,
   TailwindCSS: `${DEVICON_BASE}/tailwindcss/tailwindcss-original.svg`,
+  "Tailwind CSS": `${DEVICON_BASE}/tailwindcss/tailwindcss-original.svg`,
   Node: `${DEVICON_BASE}/nodejs/nodejs-original.svg`,
   "Node.js": `${DEVICON_BASE}/nodejs/nodejs-original.svg`,
   MongoDB: `${DEVICON_BASE}/mongodb/mongodb-original.svg`,

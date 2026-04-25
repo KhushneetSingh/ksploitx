@@ -46,11 +46,11 @@ export default function Contact() {
     <>
       <section
         id="contact"
-        className="py-32 px-6 md:px-12 lg:px-24 bg-surface-container"
+        className="py-20 px-6 md:px-12 lg:px-24 bg-surface-container"
       >
         <div className="max-w-5xl mx-auto">
           {/* ── Two Column Layout ── */}
-          <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-10">
             {/* LEFT: Let's Build + Email + Socials */}
             <div className="flex-1 text-center lg:text-left">
               {/* Label */}
@@ -70,7 +70,7 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ delay: 0.1, duration: 0.5 }}
-                className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-8"
+                className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-5"
               >
                 LET&apos;S BUILD<span className="text-accent">.</span>
               </motion.h2>
@@ -81,7 +81,7 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ delay: 0.2, duration: 0.5 }}
-                className="mb-10"
+                className="mb-6"
               >
                 <a
                   href={`mailto:${email}`}
@@ -241,7 +241,7 @@ export default function Contact() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="font-mono text-[11px] text-muted tracking-widest text-center mt-20"
+            className="font-mono text-[11px] text-muted tracking-widest text-center mt-12"
           >
             © 2026 KSPLOITX // ALL_SYSTEMS_OPERATIONAL
           </motion.p>
