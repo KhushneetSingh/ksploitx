@@ -122,8 +122,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                   <Image
                     src={iconUrl}
                     alt={`${t} icon`}
-                    width={12}
-                    height={12}
+                    width={16}
+                    height={16}
                     className="tech-pill-icon"
                     unoptimized
                   />

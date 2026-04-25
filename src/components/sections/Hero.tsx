@@ -6,39 +6,30 @@ import Image from "next/image";
 
 const HERO_PHOTOS = [
   {
-    src: "/images/hero-portrait.jpg",
-    alt: "Khushneet Singh — Portrait",
+    src: "/images/hero-speaking.jpg",
+    alt: "Khushneet Singh — Speaking at AICTE IDEA Lab",
     rotate: -3,
     zIndex: 30,
     offsetX: "5%",
     offsetY: "0%",
-    label: "// PORTRAIT",
-  },
-  {
-    src: "/images/hero-speaking.jpg",
-    alt: "Khushneet Singh — Speaking at AICTE IDEA Lab",
-    rotate: 5,
-    zIndex: 20,
-    offsetX: "30%",
-    offsetY: "12%",
     label: "// WORKSHOP",
   },
   {
     src: "/images/hero-speaking-2.jpg",
     alt: "Khushneet Singh — Speaking at event",
-    rotate: -2,
+    rotate: 4,
     zIndex: 25,
-    offsetX: "55%",
+    offsetX: "45%",
     offsetY: "5%",
     label: "// SPEAKING",
   },
   {
     src: "/images/hero-amd.jpg",
     alt: "Khushneet Singh — AMD Slingshot Event",
-    rotate: 0,
-    zIndex: 10,
-    offsetX: "15%",
-    offsetY: "-8%",
+    rotate: -1,
+    zIndex: 20,
+    offsetX: "25%",
+    offsetY: "-10%",
     label: "// AMD_SLINGSHOT",
   },
   {
@@ -46,8 +37,8 @@ const HERO_PHOTOS = [
     alt: "Khushneet Singh — Conference Presentation",
     rotate: 3,
     zIndex: 15,
-    offsetX: "45%",
-    offsetY: "-12%",
+    offsetX: "55%",
+    offsetY: "-8%",
     label: "// CONFERENCE",
   },
   {
@@ -56,8 +47,26 @@ const HERO_PHOTOS = [
     rotate: -4,
     zIndex: 12,
     offsetX: "60%",
-    offsetY: "20%",
+    offsetY: "18%",
     label: "// HACKATHON",
+  },
+  {
+    src: "/images/hero-amd-friends.jpg",
+    alt: "Khushneet Singh — With AMD friends",
+    rotate: 2,
+    zIndex: 18,
+    offsetX: "8%",
+    offsetY: "20%",
+    label: "// SQUAD",
+  },
+  {
+    src: "/images/hero-kiosk.jpg",
+    alt: "Khushneet Singh — Kiosk Demo",
+    rotate: -5,
+    zIndex: 14,
+    offsetX: "38%",
+    offsetY: "22%",
+    label: "// KIOSK_DEMO",
   },
 ];
 
@@ -269,7 +278,8 @@ export default function Hero() {
                       width={320}
                       height={400}
                       className="photo-image"
-                      priority={index === 0}
+                      loading={index < 3 ? "eager" : "lazy"}
+                      priority={index < 3}
                     />
                   </div>
 

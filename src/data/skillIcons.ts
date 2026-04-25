@@ -15,6 +15,7 @@ export const SKILL_ICON_MAP: Record<string, string | null> = {
   Dart: `${DEVICON_BASE}/dart/dart-original.svg`,
   JavaScript: `${DEVICON_BASE}/javascript/javascript-original.svg`,
   "C++": `${DEVICON_BASE}/cplusplus/cplusplus-original.svg`,
+  Java: `${DEVICON_BASE}/java/java-original.svg`,
   SQL: `${DEVICON_BASE}/azuresqldatabase/azuresqldatabase-original.svg`,
   Bash: `${DEVICON_BASE}/bash/bash-original.svg`,
 
@@ -25,6 +26,8 @@ export const SKILL_ICON_MAP: Record<string, string | null> = {
   FastAPI: `${DEVICON_BASE}/fastapi/fastapi-original.svg`,
   Flask: `${DEVICON_BASE}/flask/flask-original.svg`,
   Express: `${DEVICON_BASE}/express/express-original.svg`,
+  Django: `${DEVICON_BASE}/django/django-plain.svg`,
+  "Django REST Framework": `${DEVICON_BASE}/djangorest/djangorest-original.svg`,
   LangChain: null, // no devicon entry
 
   // ── AI/ML ──
@@ -44,6 +47,13 @@ export const SKILL_ICON_MAP: Record<string, string | null> = {
   Vercel: `${DEVICON_BASE}/vercel/vercel-original.svg`,
   "VS Code": `${DEVICON_BASE}/vscode/vscode-original.svg`,
   Figma: `${DEVICON_BASE}/figma/figma-original.svg`,
+  Postman: `${DEVICON_BASE}/postman/postman-original.svg`,
+  "GitHub Actions": `${DEVICON_BASE}/githubactions/githubactions-original.svg`,
+
+  // ── Design ──
+  Photoshop: `${DEVICON_BASE}/photoshop/photoshop-original.svg`,
+  Illustrator: `${DEVICON_BASE}/illustrator/illustrator-plain.svg`,
+  "Fusion 360": null, // no devicon entry — uses custom SVG fallback
 
   // ── Hardware ──
   "Raspberry Pi": `${DEVICON_BASE}/raspberrypi/raspberrypi-original.svg`,
