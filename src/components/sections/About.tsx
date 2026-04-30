@@ -79,28 +79,28 @@ function CardIcon({
 
 export default function About() {
   return (
-    <section id="about" className="py-24 px-6 md:px-12 lg:px-24">
-      <div className="max-w-5xl mx-auto">
+    <section id="about" className="syslog-section">
+      <div className="syslog-container">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="syslog-header"
         >
-          <span className="font-mono text-xs text-muted tracking-widest">
+          <span className="syslog-section-label">
             // SECTION_04
           </span>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mt-1">
+          <h2 className="syslog-title">
             SYSTEM_LOG
           </h2>
         </motion.div>
 
         {/* Timeline */}
-        <div className="relative">
+        <div className="syslog-timeline">
           {/* Vertical Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-accent/30 md:-translate-x-px" />
+          <div className="syslog-timeline-line" />
 
           {timeline.map((item, index) => (
             <TimelineEntry
@@ -134,46 +134,50 @@ function TimelineEntry({
     research: "// RESEARCH",
   };
 
-  const typeColors: Record<TimelineItem["type"], string> = {
-    education: "text-accent-cyan",
-    achievement: "text-accent",
-    experience: "text-yellow-400",
-    research: "text-purple-400",
-  };
-
   const renderImages = () => {
     if (!item.images || item.images.length === 0) return null;
 
+    /* ── Banner (Education) ── */
     if (item.imageLayout === "banner") {
       return (
-        <div className="mt-4 mb-4 w-full h-32 md:h-40 border-2 border-dashed border-accent/40 flex items-center justify-center bg-background/50 rounded-md relative overflow-hidden group-hover:border-accent transition-colors duration-300">
-          <span className="font-mono text-sm text-accent/60 tracking-widest absolute z-0">[ IMAGE ]</span>
+        <div className="syslog-img-banner">
           {item.images[0] && (
-            <img src={item.images[0]} alt="Banner" className="w-full h-full object-cover relative z-10" onError={(e) => e.currentTarget.style.display = 'none'} />
+            <img
+              src={item.images[0]}
+              alt="Banner"
+              className="syslog-banner-img"
+              loading="lazy"
+              onError={(e) => (e.currentTarget.style.display = "none")}
+            />
           )}
         </div>
       );
     }
 
+    /* ── Scattered / Polaroid (Achievement & Experience) ── */
     if (item.imageLayout === "scattered") {
       return (
-        <div className="mt-6 mb-8 relative h-40 md:h-48 flex items-center justify-center">
+        <div className="syslog-img-scattered">
           {item.images.map((img, i) => {
-            const randomRotate = (i % 2 === 0 ? 1 : -1) * (4 + (i * 3));
-            const randomTranslateX = (i % 2 === 0 ? -1 : 1) * (i * 10);
+            const rotations = [-6, 4, -3, 5];
+            const rotate = rotations[i % rotations.length];
+            const offsetX = (i - Math.floor(item.images!.length / 2)) * 60;
             return (
               <div
                 key={i}
-                style={{ 
-                  transform: `translate(${randomTranslateX}px, 0) rotate(${randomRotate}deg)`, 
-                  zIndex: i 
+                style={{
+                  transform: `translateX(${offsetX}px) rotate(${rotate}deg)`,
+                  zIndex: i,
                 }}
-                className="absolute w-28 h-28 md:w-36 md:h-36 border border-border bg-background flex items-center justify-center shadow-2xl transition-all duration-300 hover:!translate-x-0 hover:!translate-y-0 hover:!rotate-0 hover:scale-110 hover:!z-50"
+                className="syslog-polaroid"
               >
-                <div className="w-[90%] h-[90%] border border-dashed border-accent/30 flex items-center justify-center bg-surface relative overflow-hidden">
-                  <span className="font-mono text-[10px] text-accent/50 tracking-wider absolute z-0">[ IMAGE ]</span>
-                  <img src={img} alt="Gallery" className="w-full h-full object-cover relative z-10" onError={(e) => e.currentTarget.style.display = 'none'} />
-                </div>
+                <img
+                  src={img}
+                  alt="Gallery"
+                  className="syslog-polaroid-img"
+                  loading="lazy"
+                  onError={(e) => (e.currentTarget.style.display = "none")}
+                />
               </div>
             );
           })}
@@ -181,13 +185,19 @@ function TimelineEntry({
       );
     }
 
+    /* ── Stacked / Grid (Research) ── */
     if (item.imageLayout === "stacked") {
       return (
-        <div className="mt-4 mb-4 flex gap-4 overflow-x-auto pb-2">
+        <div className="syslog-img-grid">
           {item.images.map((img, i) => (
-            <div key={i} className="flex-shrink-0 w-36 h-48 border-2 border-dashed border-accent/40 flex items-center justify-center bg-background/50 rounded-sm hover:border-accent hover:bg-accent/5 transition-all duration-300 relative overflow-hidden">
-              <span className="font-mono text-xs text-accent/60 tracking-widest text-center px-2 absolute z-0">[ IMAGE ]</span>
-              <img src={img} alt="Document" className="w-full h-full object-cover relative z-10" onError={(e) => e.currentTarget.style.display = 'none'} />
+            <div key={i} className="syslog-grid-card">
+              <img
+                src={img}
+                alt="Document"
+                className="syslog-grid-img"
+                loading="lazy"
+                onError={(e) => (e.currentTarget.style.display = "none")}
+              />
             </div>
           ))}
         </div>
@@ -198,31 +208,27 @@ function TimelineEntry({
   };
 
   const cardContent = (
-    <div className="timeline-card bg-surface border border-border p-5 md:p-6 hover:border-accent/30 transition-all duration-300 group relative flex flex-col h-full">
+    <div className="syslog-card">
       {/* Type Label */}
-      <span
-        className={`font-mono text-[10px] tracking-widest uppercase ${typeColors[item.type]} opacity-70`}
-      >
+      <span className="syslog-entry-label">
         {typeLabels[item.type]}
       </span>
 
       {/* Title */}
-      <h3 className="font-heading text-lg md:text-xl font-bold text-foreground mt-2 mb-1 group-hover:text-accent transition-colors duration-300">
+      <h3 className="syslog-entry-title">
         {item.title}
       </h3>
 
       {/* Subtitle */}
-      <div className="flex items-center gap-2 mb-1">
-        <p className="font-mono text-xs text-accent-cyan/80">
-          {item.subtitle}
-        </p>
-      </div>
+      <p className="syslog-entry-subtitle">
+        {item.subtitle}
+      </p>
 
       {/* Date */}
-      <p className="font-mono text-[11px] text-muted mb-4">{item.date}</p>
+      <p className="syslog-entry-date">{item.date}</p>
 
       {/* Description */}
-      <p className="text-sm text-muted-light leading-relaxed mb-2">
+      <p className="syslog-entry-body">
         {item.description}
       </p>
 
@@ -230,11 +236,11 @@ function TimelineEntry({
       {renderImages()}
 
       {/* Spacer */}
-      <div className="flex-grow min-h-[16px]" />
+      <div style={{ flexGrow: 1, minHeight: 16 }} />
 
       {/* Bottom Row: Pill Buttons */}
-      {(item.links && item.links.length > 0) ? (
-        <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-border/50">
+      {item.links && item.links.length > 0 && (
+        <div className="syslog-links">
           {item.links.map((link, i) => (
             <a
               key={i}
@@ -242,54 +248,25 @@ function TimelineEntry({
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-full border border-accent/20 bg-accent/5 text-accent hover:bg-accent/10 hover:border-accent/60 hover:shadow-[0_0_15px_rgba(0,255,159,0.2)] transition-all duration-300 group/btn"
+              className="syslog-link-btn"
             >
-              <span className="group-hover/btn:scale-110 transition-transform duration-300">
-                <CardIcon type={link.icon} size={18} />
+              <span className="syslog-link-icon">
+                <CardIcon type={link.icon} size={16} />
               </span>
-              <span className="font-mono text-xs font-semibold tracking-wide">
+              <span className="syslog-link-label">
                 {link.label}
               </span>
             </a>
           ))}
-        </div>
-      ) : (
-        /* Legacy fallback */
-        <div className="flex items-center justify-between mt-4">
-          <div className="flex items-center gap-2">
-            {item.linkIcon && (
-              <span className="inline-flex items-center justify-center w-7 h-7 border border-border text-muted-light group-hover:border-accent/40 group-hover:text-accent transition-all duration-200">
-                <CardIcon type={item.linkIcon as any} size={14} />
-              </span>
-            )}
-            {item.githubUrl && (
-              <button
-                type="button"
-                className="inline-flex items-center justify-center w-7 h-7 border border-border text-muted-light hover:border-accent hover:text-accent transition-all duration-200"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  window.open(item.githubUrl, "_blank", "noopener,noreferrer");
-                }}
-              >
-                <GithubIcon size={14} />
-              </button>
-            )}
-          </div>
-          {item.hoverLabel && (
-            <span className="font-mono text-[10px] text-muted opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 tracking-wider">
-              {item.hoverLabel}
-            </span>
-          )}
         </div>
       )}
     </div>
   );
 
   return (
-    <div className="relative flex items-start mb-12 last:mb-0">
-      {/* Node */}
-      <div className="absolute left-4 md:left-1/2 w-3 h-3 bg-accent border-2 border-background -translate-x-1.5 md:-translate-x-1.5 mt-6 z-10" />
+    <div className="syslog-entry">
+      {/* Node — green square */}
+      <div className="syslog-node" />
 
       {/* Card - Mobile: always right, Desktop: alternating */}
       <motion.div
@@ -297,9 +274,7 @@ function TimelineEntry({
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ delay: index * 0.15, duration: 0.5 }}
-        className={`ml-12 md:ml-0 md:w-[calc(50%-2rem)] ${
-          isLeft ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"
-        }`}
+        className={`syslog-card-wrapper ${isLeft ? "syslog-card-left" : "syslog-card-right"}`}
       >
         {cardContent}
       </motion.div>

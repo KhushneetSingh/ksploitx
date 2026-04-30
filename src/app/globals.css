@@ -735,7 +735,401 @@ button, a {
   box-shadow: 0 4px 20px rgba(0, 255, 136, 0.1);
 }
 
-/* ── Timeline Card ───────────────────────────────── */
+/* ══════════════════════════════════════════════════════
+   SYSTEM_LOG Section — Complete Design System
+   ══════════════════════════════════════════════════════ */
+
+/* ── Section Wrapper ─────────────────────────────── */
+
+.syslog-section {
+  background: #0d0d0d;
+  padding: 96px 24px;
+}
+
+@media (max-width: 767px) {
+  .syslog-section {
+    padding: 64px 16px;
+  }
+}
+
+.syslog-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── Header ──────────────────────────────────────── */
+
+.syslog-header {
+  margin-bottom: 64px;
+}
+
+.syslog-section-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-variant: small-caps;
+  color: #00e5ff;
+  letter-spacing: 0.15em;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+.syslog-title {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(2rem, 8vw, 4rem);
+  letter-spacing: 0.05em;
+  color: #00ff41;
+  line-height: 1.1;
+  text-shadow: 0 0 30px rgba(0, 255, 65, 0.15);
+}
+
+/* ── Timeline Container ──────────────────────────── */
+
+.syslog-timeline {
+  position: relative;
+}
+
+/* Vertical timeline line */
+.syslog-timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #1f1f1f;
+  left: 50%;
+  transform: translateX(-0.5px);
+}
+
+@media (max-width: 767px) {
+  .syslog-timeline-line {
+    left: 16px;
+    transform: none;
+  }
+}
+
+/* ── Timeline Entry ──────────────────────────────── */
+
+.syslog-entry {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 48px;
+}
+
+.syslog-entry:last-child {
+  margin-bottom: 0;
+}
+
+/* Green square node */
+.syslog-node {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #00ff41;
+  border: 2px solid #0d0d0d;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 24px;
+  z-index: 10;
+  box-shadow: 0 0 8px rgba(0, 255, 65, 0.4);
+}
+
+@media (max-width: 767px) {
+  .syslog-node {
+    left: 16px;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Card wrapper positioning */
+.syslog-card-wrapper {
+  width: calc(50% - 32px);
+}
+
+.syslog-card-left {
+  margin-right: auto;
+  padding-right: 32px;
+}
+
+.syslog-card-right {
+  margin-left: auto;
+  padding-left: 32px;
+}
+
+@media (max-width: 767px) {
+  .syslog-card-wrapper {
+    width: calc(100% - 48px);
+    margin-left: 40px !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* ── Card ─────────────────────────────────────────── */
+
+.syslog-card {
+  background: #111111;
+  border: 1px solid rgba(0, 255, 65, 0.2);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.syslog-card:hover {
+  border-color: rgba(0, 255, 65, 0.45);
+  box-shadow: 0 0 24px rgba(0, 255, 65, 0.06),
+    0 8px 32px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 767px) {
+  .syslog-card {
+    padding: 16px;
+  }
+}
+
+/* ── Entry Labels ─────────────────────────────────── */
+
+.syslog-entry-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #00e5ff;
+  opacity: 0.85;
+}
+
+/* ── Entry Title ──────────────────────────────────── */
+
+.syslog-entry-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  font-weight: 700;
+  color: #00ff41;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  line-height: 1.3;
+  transition: text-shadow 0.3s ease;
+}
+
+.syslog-card:hover .syslog-entry-title {
+  text-shadow: 0 0 12px rgba(0, 255, 65, 0.3);
+}
+
+/* ── Entry Subtitle (Org Name) ────────────────────── */
+
+.syslog-entry-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #00e5ff;
+  margin-bottom: 2px;
+}
+
+/* ── Entry Date ───────────────────────────────────── */
+
+.syslog-entry-date {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #4ade80;
+  margin-bottom: 16px;
+}
+
+/* ── Entry Body ───────────────────────────────────── */
+
+.syslog-entry-body {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+/* ── Image Layouts ────────────────────────────────── */
+
+/* Banner (Education — full-width group photo) */
+.syslog-img-banner {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  width: 100%;
+  max-width: 600px;
+  border: 1.5px dashed #00ff41;
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(13, 13, 13, 0.5);
+  transition: border-color 0.3s ease;
+}
+
+.syslog-card:hover .syslog-img-banner {
+  border-color: #00ff41;
+}
+
+.syslog-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  object-fit: cover;
+}
+
+/* Scattered / Polaroid (Achievement & Experience) */
+.syslog-img-scattered {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  min-height: 340px;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .syslog-img-scattered {
+    min-height: 300px;
+  }
+}
+
+.syslog-polaroid {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  padding: 8px;
+  background: #1a1a1a;
+  border: 8px solid #1a1a1a;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.syslog-polaroid:hover {
+  transform: translateX(0) translateY(-8px) rotate(0deg) scale(1.05) !important;
+  z-index: 50 !important;
+  box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 255, 65, 0.08);
+}
+
+@media (max-width: 767px) {
+  .syslog-polaroid {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+.syslog-polaroid-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+/* Stacked / Grid (Research — certificate + paper) */
+.syslog-img-grid {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .syslog-img-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.syslog-grid-card {
+  border: 1.5px dashed #00ff41;
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(13, 13, 13, 0.5);
+  transition: transform 0.2s ease, border-color 0.3s ease;
+}
+
+.syslog-grid-card:hover {
+  transform: scale(1.02);
+  border-color: #00ff41;
+}
+
+.syslog-grid-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  object-fit: cover;
+}
+
+/* ── Link Buttons (Pill Shape) ────────────────────── */
+
+.syslog-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.syslog-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  border: 1.5px solid currentColor;
+  background: transparent;
+  color: #e5e7eb;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease;
+  white-space: nowrap;
+}
+
+.syslog-link-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #00ff41;
+  border-color: #00ff41;
+  box-shadow: 0 0 16px rgba(0, 255, 65, 0.12);
+}
+
+.syslog-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.syslog-link-btn:hover .syslog-link-icon {
+  transform: scale(1.15);
+}
+
+.syslog-link-label {
+  line-height: 1;
+}
+
+@media (max-width: 767px) {
+  .syslog-link-btn {
+    min-width: fit-content;
+  }
+}
+
+/* ── Legacy timeline-card compat ─────────────────── */
 
 .timeline-card {
   transition: border-color 0.3s ease, box-shadow 0.3s ease,
