@@ -4,6 +4,7 @@ import { Project } from "@/types";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { TECH_ICON_MAP } from "@/data/skillIcons";
+import { getImagePath } from "@/utils/basePath";
 
 function GithubIcon({ size = 16 }: { size?: number }) {
   return (
@@ -42,7 +43,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       <div className="project-banner">
         {project.coverImage ? (
           <Image
-            src={project.coverImage}
+            src={getImagePath(project.coverImage)}
             alt={`${project.title} banner`}
             width={640}
             height={360}

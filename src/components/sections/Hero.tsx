@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { getImagePath } from "@/utils/basePath";
 
 const HERO_PHOTOS = [
   {
@@ -286,7 +287,7 @@ export default function Hero() {
                   {/* Photo */}
                   <div className="photo-inner">
                     <Image
-                      src={photo.src}
+                      src={getImagePath(photo.src)}
                       alt={photo.alt}
                       width={320}
                       height={400}
