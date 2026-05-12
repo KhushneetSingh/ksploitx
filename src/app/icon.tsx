@@ -1,5 +1,8 @@
 import { ImageResponse } from 'next/og';
 
+// Route segment config — required for static export
+export const dynamic = 'force-static';
+
 // Image metadata
 export const size = { width: 32, height: 32 };
 export const contentType = 'image/png';
