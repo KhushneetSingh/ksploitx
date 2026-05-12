@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { timeline } from "@/data/about";
 import { ExternalLink } from "lucide-react";
 import { TimelineItem } from "@/types";
+import { getImagePath } from "@/utils/basePath";
 
 /* ── Inline SVG Icons ──────────────────────────────── */
 
@@ -143,7 +144,7 @@ function TimelineEntry({
         <div className="syslog-img-banner">
           {item.images[0] && (
             <img
-              src={item.images[0]}
+              src={getImagePath(item.images[0])}
               alt="Banner"
               className="syslog-banner-img"
               loading="lazy"
@@ -172,7 +173,7 @@ function TimelineEntry({
                 className="syslog-polaroid"
               >
                 <img
-                  src={img}
+                  src={getImagePath(img)}
                   alt="Gallery"
                   className="syslog-polaroid-img"
                   loading="lazy"
@@ -192,7 +193,7 @@ function TimelineEntry({
           {item.images.map((img, i) => (
             <div key={i} className="syslog-grid-card">
               <img
-                src={img}
+                src={getImagePath(img)}
                 alt="Document"
                 className="syslog-grid-img"
                 loading="lazy"
