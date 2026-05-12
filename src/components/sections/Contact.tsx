@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Download, FileText, X, Eye } from "lucide-react";
+import { getImagePath } from "@/utils/basePath";
 
 /* ── Inline SVG Icons ──────────────────────────────── */
 
@@ -213,7 +214,7 @@ export default function Contact() {
                     <span>PREVIEW</span>
                   </button>
                   <a
-                    href="/docs/Khushneet_Singh.pdf"
+                    href={getImagePath("/docs/Khushneet_Singh.pdf")}
                     download="Khushneet_Singh_Resume.pdf"
                     className="resume-action-btn resume-action-btn-primary flex-1"
                   >
@@ -277,7 +278,7 @@ export default function Contact() {
                 </div>
                 <div className="flex items-center gap-3">
                   <a
-                    href="/docs/Khushneet_Singh.pdf"
+                    href={getImagePath("/docs/Khushneet_Singh.pdf")}
                     download="Khushneet_Singh_Resume.pdf"
                     className="resume-modal-download-btn"
                   >
@@ -297,7 +298,7 @@ export default function Contact() {
               {/* PDF Embed */}
               <div className="resume-modal-body">
                 <iframe
-                  src="/docs/Khushneet_Singh.pdf"
+                  src={getImagePath("/docs/Khushneet_Singh.pdf")}
                   title="Khushneet Singh Resume"
                   className="w-full h-full border-0"
                 />
