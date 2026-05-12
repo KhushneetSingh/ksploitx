@@ -154,9 +154,9 @@ export default function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="w-full lg:w-auto lg:flex-shrink-0"
+              className="w-full lg:w-auto lg:flex-shrink-0 overflow-hidden"
             >
-              <div className="resume-card">
+              <div className="resume-card border border-[#00ff88]/20 p-4">
                 {/* Header */}
                 <div className="flex items-center gap-2 mb-4">
                   <FileText size={16} className="text-accent" />

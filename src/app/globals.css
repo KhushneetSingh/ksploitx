@@ -26,7 +26,6 @@ body {
   background-color: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);
-  cursor: crosshair;
   overflow-x: hidden;
 }
 
@@ -329,10 +328,6 @@ body {
 }
 
 /* ── Button Base ────────────────────────────────────── */
-
-button, a {
-  cursor: crosshair;
-}
 
 /* ── Fade-in Utility ────────────────────────────────── */
 
@@ -1148,9 +1143,7 @@ a:focus-visible .timeline-card {
 
 .resume-card {
   width: 280px;
-  padding: 20px;
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 

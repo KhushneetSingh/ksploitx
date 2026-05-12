@@ -231,7 +231,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.3, duration: 0.6 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-row gap-4 flex-wrap"
             >
               <a
                 href="#projects"

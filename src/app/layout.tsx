@@ -26,18 +26,27 @@ export const metadata: Metadata = {
   description:
     "Personal portfolio of Khushneet Singh (KSPLOITX) — Full-stack developer and AI engineer building intelligent systems at the intersection of security, machine learning, and scalable architecture.",
   openGraph: {
-    title: "KSPLOITX | Full-Stack · AI · Security",
+    title: "Khushneet Singh — KSPLOITX",
     description:
       "Full-stack developer and AI engineer building intelligent systems at the intersection of security, machine learning, and scalable architecture.",
+    url: "https://ksploitx.pages.dev",
+    siteName: "KSPLOITX",
+    images: [
+      {
+        url: "https://ksploitx.pages.dev/cover-portfolio.png",
+        width: 1200,
+        height: 630,
+        alt: "Khushneet Singh — KSPLOITX Portfolio",
+      },
+    ],
     type: "website",
-    locale: "en_US",
-    url: "https://ksploitx.dev",
   },
   twitter: {
     card: "summary_large_image",
-    title: "KSPLOITX | Full-Stack · AI · Security",
+    title: "Khushneet Singh — KSPLOITX",
     description:
-      "Full-stack developer and AI engineer. Security · AI · Hardware.",
+      "Full-stack developer and AI engineer building intelligent systems.",
+    images: ["https://ksploitx.pages.dev/cover-portfolio.png"],
   },
   robots: {
     index: true,
